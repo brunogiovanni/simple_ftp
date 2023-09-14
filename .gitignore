@@ -1,3 +1,2 @@
-*.env
-ArarajubaFTP/bin/*
-ArarajubaFTP/obj/*
+SimpleFTP/bin/*
+SimpleFTP/obj/*

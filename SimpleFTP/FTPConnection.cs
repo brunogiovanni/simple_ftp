@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Renci.SshNet;
 
-namespace ArarajubaFTP
+namespace SimpleFTP
 {
     class FTPConnection
     {

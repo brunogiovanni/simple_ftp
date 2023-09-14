@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/ArarajubaFTP/bin/Debug/net7.0/ArarajubaFTP.dll",
+            "program": "${workspaceFolder}/SimpleFTP/bin/Debug/net7.0/SimpleFTP.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/ArarajubaFTP",
+            "cwd": "${workspaceFolder}/SimpleFTP",
             "console": "internalConsole",
             "stopAtEntry": false
         },
