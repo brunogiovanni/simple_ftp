@@ -1,19 +1,16 @@
-using System;
+﻿using System;
 using System.IO;
 using Renci.SshNet;
 
 namespace SimpleFTP
 {
-    class FTPConnection : IConnection
+    class SFtpConnection : IConnection
     {
-        private readonly FluentFTP.FtpClient client;
+        private readonly SftpClient client;
 
-        public FTPConnection(string host, int port, string username, string password)
+        public SFtpConnection(string host, int port, string username, string password)
         {
-            this.client = new FluentFTP.FtpClient(host, port)
-            {
-                Credentials = new System.Net.NetworkCredential(username, password),
-            };
+            this.client = new SftpClient(host, port, username, password); ;
         }
 
         public void Connect()
@@ -57,9 +54,11 @@ namespace SimpleFTP
                 var remotePath = Environment.GetEnvironmentVariable("SERVER_PATH") ?? "";
                 var filename = Environment.GetEnvironmentVariable("FILENAME") ?? "";
 
-                this.client.UploadFile(localPath + filename, remotePath + filename);
-                Console.WriteLine("Arquivo enviado com sucesso!");
-
+                using (var fileStream = new FileStream(localPath + filename, FileMode.Open))
+                {
+                    this.client.UploadFile(fileStream, remotePath + filename);
+                    Console.WriteLine("Arquivo enviado com sucesso!");
+                }
                 this.client.Disconnect();
                 Console.WriteLine("Desconectado com sucesso!");
                 this.client.Dispose();

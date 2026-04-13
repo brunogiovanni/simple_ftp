@@ -1,2 +1,4 @@
 SimpleFTP/bin/*
 SimpleFTP/obj/*
+/.vs
+/SimpleFTP/ftp.env

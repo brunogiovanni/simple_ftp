@@ -22,7 +22,11 @@ namespace SimpleFTP
             string username = Environment.GetEnvironmentVariable("USERNAME") ?? "";
             string password = Environment.GetEnvironmentVariable("PASSWORD") ?? "";
 
-            var ftpConnection = new FTPConnection(host, port, username, password);
+            IConnection ftpConnection = new SFtpConnection(host, port, username, password);
+            if (port == 21)
+            {
+                ftpConnection = new FTPConnection(host, port, username, password);
+            }
             ftpConnection.Connect();
             ftpConnection.SendFile();
         }

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Core.Renci.SshNet" Version="2021.10.2" />
+    <PackageReference Include="FluentFTP" Version="53.0.2" />
   </ItemGroup>
 
 </Project>
